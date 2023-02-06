@@ -1,0 +1,46 @@
+{
+  "name": "qindel-design_patterns-febrero",
+  "version": "1.0.0",
+  "description": "Design patterns",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "ts-node": "ts-node",
+    "format": "prettier --write \"./**/*.{ts,json}\"",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "prerelease": "standard-version ",
+    "release": "git push --follow-tags origin main",
+    "update": "ncu -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classroomLabs/qindel-design_patterns-febrero.git"
+  },
+  "author": {
+    "name": "Alberto Basalo",
+    "email": "albertobasalo@hotmail.com",
+    "url": "https://albertobasalo.dev"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classroomLabs/qindel-design_patterns-febrero/issues"
+  },
+  "homepage": "https://github.com/classroomLabs/qindel-design_patterns-febrero#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.19",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "npm-check-updates": "^16.6.5",
+    "prettier": "^2.8.3",
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
+}
