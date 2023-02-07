@@ -3,13 +3,13 @@
 ## Session 1: Introduction to the course
 
 - [x] Introduction to the course
-- [ ] Coding principles
-- [ ] Obstacles to change
-- [ ] SOLID principles
+- [x] Coding principles
+- [x] Obstacles to change
+- [x] SOLID principles
 
 ## Session 2: Creational patterns
 
-- [ ] Singleton
+- [x] Singleton
 - [ ] Factory
 - [ ] Builder
 - [ ] Prototype
