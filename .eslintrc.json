@@ -28,7 +28,7 @@
     "max-nested-callbacks": ["warn", 2],
     "max-params": ["warn", 2],
     "no-magic-numbers": [
-      "warn",
+      "off",
       {
         "detectObjects": false,
         "enforceConst": true,

@@ -1,5 +1,5 @@
-// import { Logger } from "./singleton";
-import { Logger } from "./no-singleton";
+import { Logger } from "./singleton";
+// import { Logger } from "./no-singleton";
 describe("The Logger class", () => {
   it("should be the same instance", () => {
     const logger = new Logger();
