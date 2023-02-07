@@ -3,8 +3,8 @@
 > Advanced clean code techniques for a better codebase.
 
 ```terminal
-git clone https://github.com/L-ab-s/vitae-clean_code_avanzado-octubre.git
-cd vitae-clean_code_avanzado-octubre
+git clone https://github.com/classroomLabs/qindel-design_patterns-febrero.git
+cd qindel-clean_code_avanzado-febrero
 npm install
 npm test
 ```
