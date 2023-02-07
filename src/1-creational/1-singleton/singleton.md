@@ -2,6 +2,8 @@
 
 ## Ensures that a class has **only one** instance, avoiding global variables
 
+Using the singleton pattern, we can avoid this dependency hell and error-prone situations. It is a straightforward pattern, but it is handy.
+
 ### Links
 
 - https://sbcode.net/typescript/singleton/

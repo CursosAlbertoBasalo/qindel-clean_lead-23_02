@@ -1,7 +1,17 @@
-// ❌ Bad example not using singleton
+// ✅ Singleton solution
 export class Logger {
+  private static instance: Logger;
   entries: string[] = [];
-  constructor() {}
+
+  constructor() {
+    if (Logger.instance) {
+      // return the existing instance
+      return Logger.instance;
+    }
+    // real initialization only happens the first time
+    Logger.instance = this;
+  }
+
   log(message: string) {
     this.entries.push(message);
     console.log(message);
@@ -12,13 +22,15 @@ export class Application {
 
   main() {
     this.logger.log("Hello world!");
-    // 🤢 dependency hell, remember to pass the instance down the chain
-    const service = new Service(this.logger);
+    // 😏 no need to pass the instance down the chain
+    const service = new Service();
     service.doSomething();
   }
 }
 export class Service {
-  constructor(private logger: Logger) {}
+  // 😏 no worries about dependencies
+  private logger: Logger = new Logger();
+
   doSomething() {
     this.logger.log("Doing something...");
     const repository = new Repository();
@@ -26,11 +38,10 @@ export class Service {
   }
 }
 export class Repository {
-  // 😱 another instance, potentially different from the one in Application
+  // 😏 no new instance created
   private logger: Logger = new Logger();
 
   save(user: { name: string }) {
-    this.logger.log("Saving user...");
-    // ...
+    this.logger.log("Saving user..." + user);
   }
 }
