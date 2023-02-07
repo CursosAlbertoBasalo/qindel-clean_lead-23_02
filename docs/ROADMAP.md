@@ -2,7 +2,7 @@
 
 ## Session 1: Introduction to the course
 
-- [ ] Introduction to the course
+- [x] Introduction to the course
 - [ ] Coding principles
 - [ ] Obstacles to change
 - [ ] SOLID principles
