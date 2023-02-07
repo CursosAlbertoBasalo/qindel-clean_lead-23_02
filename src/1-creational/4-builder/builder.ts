@@ -37,7 +37,7 @@ export class Logger {
 
 // ✅ Builder solution
 export class LoggerBuilder {
-  // 😏 ensures that the client will not need to know too much about the logger
+  // 😏 ensures that you will not need to know too much about the logger
   public static build(formatter: Formatter, writer: Writer): Logger {
     if (formatter instanceof JsonFormatter && writer instanceof DatabaseWriter) {
       // 😏 detects incompatibility before the logger is created
@@ -52,8 +52,8 @@ export class LoggerBuilder {
 }
 
 // ✅ ✅ Builder Director solution
-// 😏 director is an abstraction on top of the builder
-// to give clients what they want without knowing the internals
+// 😏 Director is an abstraction on top of the Builder
+// gives a Catalog without knowing the internals
 export class LoggerDirector {
   public static buildADefaultLogger(): Logger {
     return LoggerBuilder.build(new SimpleFormatter(), new FileWriter());
