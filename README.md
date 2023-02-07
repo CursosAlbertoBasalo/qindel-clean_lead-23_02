@@ -6,6 +6,7 @@
 git clone https://github.com/L-ab-s/vitae-clean_code_avanzado-octubre.git
 cd vitae-clean_code_avanzado-octubre
 npm install
+npm test
 ```
 
 ## 🎯 Motivation
@@ -23,26 +24,6 @@ While developing, make sure to install the recommended extensions for a better d
 #### Updating
 
 To keep your dependencies up to date use `npm run updates` and it will check for updates. Then cherry-pick what you want to update.
-
-## 🛠 Tools
-
-### 📋 GitHub Issues
-
-Use GitHub issues for tracking _User Stories_ and _developer tasks_.
-
-### 📦 Commits and release
-
-- Use the [standard-version utility](https://www.npmjs.com/package/standard-version) to produce a changelog file from [Conventional Commits guides](https://www.conventionalcommits.org/en/v1.0.0/)
-
-### 💅 Code style with Prettier
-
-- Installed and configured the _PrettierExtension_
-
-### 📐 Code linting with esLint
-
-- Installed and configured _esLint_ to work with _Prettier_
-
-> Recommended [esLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## 🛠 VS Code
 
