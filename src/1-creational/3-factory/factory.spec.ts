@@ -1,5 +1,5 @@
-import { ConsoleWriter, FileWriter } from "./dependencies";
 import { createWriter } from "./factory";
+import { ConsoleWriter, FileWriter } from "./factory.dependencies";
 
 describe("create logger writer factory", () => {
   test("should create a console writer as a default", () => {

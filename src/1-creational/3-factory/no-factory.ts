@@ -1,5 +1,5 @@
 // ❌ Bad example not using a factory
-import { ConsoleWriter, DatabaseWriter, FileWriter, Logger, Writer } from "./dependencies";
+import { ConsoleWriter, DatabaseWriter, FileWriter, Logger, Writer } from "./factory.dependencies";
 
 class Application {
   main() {

@@ -1,5 +1,5 @@
 // ✅ Factory solution
-import { ConsoleWriter, DatabaseWriter, FileWriter, Logger, Writer } from "./dependencies";
+import { ConsoleWriter, DatabaseWriter, FileWriter, Logger, Writer } from "./factory.dependencies";
 
 // 😏 factory method encapsulates the logic to create the correct instance
 export function createWriter(): Writer {
