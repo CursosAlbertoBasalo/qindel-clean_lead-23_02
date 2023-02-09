@@ -1,4 +1,4 @@
-// ✅ Singleton solution
+// * ✅ Singleton solution
 export class Logger {
   private static instance: Logger;
   entries: string[] = [];

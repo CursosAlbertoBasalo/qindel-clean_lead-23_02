@@ -1,4 +1,4 @@
-// ❌ Bad example not using singleton
+// ! ❌ Bad example not using singleton
 export class Logger {
   entries: string[] = [];
   constructor() {}
