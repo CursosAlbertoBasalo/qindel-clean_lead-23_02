@@ -21,6 +21,7 @@ public class DatabaseWriter implements Writer {
 
 public class Logger {
   private Writer writer;
+  
   public Logger(Writer writer) {
     this.writer = writer;
   }
