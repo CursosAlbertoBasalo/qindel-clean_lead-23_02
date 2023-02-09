@@ -12,7 +12,7 @@ export class Enrolment {
   }
   public enrol(activityId: string, amount: number, numPlaces: number): string {
     this.payment.pay(amount);
-    const enrolmentCode = `Enrolled ${activityId} with ${numPlaces} places`;
+    const enrolmentCode = `Enrolled in ${activityId} with ${numPlaces} places`;
     console.log(enrolmentCode);
     return enrolmentCode;
   }
