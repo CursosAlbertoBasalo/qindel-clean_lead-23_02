@@ -19,7 +19,7 @@ export class EnrolmentDecorator implements Enrolment {
   public enrol(activityId: string, customerId: string, numPlaces: number): string {
     return this.enrolment.enrol(activityId, customerId, numPlaces);
   }
-  // * 😏The decorator class adds new functionality
+  // * 😏 The decorator class adds new functionality
   public cancel(activityId: string, customerId: string): string {
     const cancellation = `Cancelled ${customerId} in ${activityId}`;
     console.log(cancellation);
