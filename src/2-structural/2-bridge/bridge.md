@@ -14,4 +14,4 @@ It is the generalization of the adapter pattern. It allows to decouple objects b
 
 ### Sample code
 
-- [x] Create a bridge between travel agencies and flight operators
+- [x] Create a bridge between payment services and enrollment applications
