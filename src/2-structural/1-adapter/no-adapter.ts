@@ -1,14 +1,15 @@
 import { CommonEvent, CommonEventService } from "./common-event.library";
 
+// ! ❌ Bad example not using adapter
 export class Client {
-  // ToDo: 🤢 client classes depending on concrete implementations
+  // ! 🤢 client classes depending on concrete implementations
   private readonly logger: CommonEventService;
   constructor() {
-    // ToDo: 🤢 client classes are coupled to the library
+    // ! 🤢 client classes are coupled to the library
     this.logger = new CommonEventService();
   }
   public doThings() {
-    // ToDo: 🤢 client classes are coupled to the interface
+    // ! 🤢 client classes are coupled to the interface
     const event: CommonEvent = {
       date: new Date(),
       host: "localhost",

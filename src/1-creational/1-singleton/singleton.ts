@@ -5,10 +5,10 @@ export class Logger {
 
   constructor() {
     if (Logger.instance) {
-      // return the existing instance
+      // * return the existing instance
       return Logger.instance;
     }
-    // real initialization only happens the first time
+    // * real initialization only happens the first time
     Logger.instance = this;
   }
 
@@ -22,13 +22,13 @@ export class Application {
 
   main() {
     this.logger.log("Hello world!");
-    // 😏 no need to pass the instance down the chain
+    // * 😏 no need to pass the instance down the chain
     const service = new Service();
     service.doSomething();
   }
 }
 export class Service {
-  // 😏 no worries about dependencies
+  // * 😏 no worries about dependencies
   private logger: Logger = new Logger();
 
   doSomething() {
@@ -38,7 +38,7 @@ export class Service {
   }
 }
 export class Repository {
-  // 😏 no new instance created
+  // * 😏 no new instance created
   private logger: Logger = new Logger();
 
   save(user: { name: string }) {

@@ -12,7 +12,7 @@ export class Application {
 
   main() {
     this.logger.log("Hello world!");
-    // 🤢 dependency hell, remember to pass the instance down the chain
+    // ! 🤢 dependency hell, remember to pass the instance down the chain
     const service = new Service(this.logger);
     service.doSomething();
   }
@@ -26,7 +26,7 @@ export class Service {
   }
 }
 export class Repository {
-  // 😱 another instance, potentially different from the one in Application
+  // ! 😱 another instance, potentially different from the one in Application
   private logger: Logger = new Logger();
 
   save(user: { name: string }) {
