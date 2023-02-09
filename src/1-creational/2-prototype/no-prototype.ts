@@ -6,6 +6,6 @@ export class Activity {
   constructor(public title: string, public allowsChildren: boolean, public price: number, public date: Date) {}
 }
 
-const activity = new Activity("Skiing", true, 100, new Date(2025, 2, 7));
+const activity = new Activity("Diving", true, 100, new Date(2025, 2, 7));
 // 😱 creating a new instance but the similar instance is a painful and error-prone task
-const activity2 = new Activity("Skiing", true, 100, new Date(2026, 1, 8));
+const activity2 = new Activity("Diving", true, 100, new Date(2026, 1, 8));

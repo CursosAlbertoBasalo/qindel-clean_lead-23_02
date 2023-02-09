@@ -9,6 +9,6 @@ export class Activity {
   }
 }
 
-const activity = new Activity("Skiing", true, 100, new Date(2025, 2, 7));
+const activity = new Activity("Diving", true, 100, new Date(2025, 2, 7));
 // 😏 no need to create a new instance, clone the existing one, and ensure the defaults are correct
 const activity2 = activity.cloneEdition(new Date(2026, 1, 8));
