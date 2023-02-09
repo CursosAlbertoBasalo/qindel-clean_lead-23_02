@@ -68,7 +68,7 @@ export class LoggerDirector {
 class Application {
   main() {
     // * 😏 ask the director to get the logger you want from its catalog
-    const logger = LoggerDirector.buildADefaultLogger();
+    const logger = LoggerDirector.buildAFancyLogger();
     // * use it and forget about inconsistencies
     logger.log({ message: "Hello world!" });
   }

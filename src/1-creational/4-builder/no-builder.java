@@ -3,6 +3,8 @@ public class Logger {
   private Formatter formatter;
   private Writer writer;
 
+  Logger() {}
+
   public void setFormatter(Formatter formatter) {
     this.formatter = formatter;
   }
