@@ -4,7 +4,12 @@ export class Activity {
   // * 😏 clone method to create a new instance with some changes
   // ToDo: could have a more semantic name like `createEdition`
   cloneEdition(date: Date): Activity {
+    // * 😏 create a new instance using the constructor
     return new Activity(this.title, this.allowsChildren, this.price, date);
+    // * 😏 or use Object.assign to clone the existing instance
+    // return Object.assign({}, this, { date });
+    // * 😏 or use the spread operator to clone the existing instance
+    // return { ...this, date } as Activity;
   }
 }
 

@@ -23,3 +23,7 @@ The Factory Method pattern (factory for short) solves this problem by encapsulat
 ### Tasks
 
 - [ ] Dependency injection container (Abstract Factory)
+
+### Extra
+
+Could evolve to be an abstract factory for creating any kind of objects from a catalog of interfaces.

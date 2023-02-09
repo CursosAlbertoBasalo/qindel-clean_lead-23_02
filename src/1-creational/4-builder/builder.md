@@ -23,3 +23,7 @@ Eventually, some compositions shine as more commonly used. In this case, we can 
 ### Practice
 
 - [ ] Activity enrollment
+
+### Extra
+
+> Could be implemented using fluid style setters finishing with a build method.
