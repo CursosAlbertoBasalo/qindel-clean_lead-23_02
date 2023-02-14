@@ -17,8 +17,10 @@ The strategy pattern respects the SOLID principles, Open/Closed by using interfa
 - https://dev.to/twinfred/design-patterns-in-javascript-1l2l#strategy-pattern-behavioral-design
 - https://medium.com/@mariusbongarts/design-patterns-with-typescript-examples-strategy-1af9efda0fd0
 
-### Tasks
+### Sample code
 
-- [ ] Create a strategy to choose a logger based on the entry level
+- [x] Create a strategy to choose a logger based on the entry level
+
+### Tasks
 
 - [ ] Create a strategy to choose a payment method based on the user preferences

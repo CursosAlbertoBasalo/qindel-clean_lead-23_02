@@ -1,9 +1,13 @@
+/* eslint-disable max-lines-per-function */
+// ! ❌ Bad example not using a strategy
+
 export type LogLevel = "info" | "debug" | "warn" | "error";
 export type LogEntry = { level: LogLevel; message: string };
 
 class Logger {
   log(entry: LogEntry): string {
     const message = this.getMessage(entry);
+    // ! 😱 new log levels require code changes
     switch (entry.level) {
       case "info":
         console.log(message);
@@ -23,6 +27,7 @@ class Logger {
     return message;
   }
   private getMessage(entry: LogEntry) {
+    // ! 😱 repeated dirty code
     switch (entry.level) {
       case "info":
         return `💁🏼‍♂️: ${entry.message}`;

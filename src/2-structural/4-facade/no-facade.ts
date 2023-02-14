@@ -7,6 +7,7 @@ export class EnrolmentSystem {
     if (numPlaces > 10) {
       throw new Error("Too many places");
     }
+    // ToDo : 🤢 too much coupling and knowledge of the subsystems
     const payment = new Payment();
     const enrolment = new Enrolment(payment);
     const amount = enrolment.getPrice(activityId, numPlaces);

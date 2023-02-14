@@ -1,9 +1,14 @@
+// * ✅ Builder solution
+
 export type LogLevel = "info" | "debug" | "warn" | "error";
 export type LogEntry = { level: LogLevel; message: string };
 
+// *  😏 an interface is a contract
 interface LogStrategy {
   log(entry: LogEntry): string;
 }
+
+// *  😏 different strategies implement the contract
 
 export class InfoLogStrategy implements LogStrategy {
   log(entry: LogEntry) {
@@ -38,6 +43,7 @@ export class ErrorLogStrategy implements LogStrategy {
 }
 
 export class Logger implements LogStrategy {
+  // *  😏 a map of strategies
   static strategies = new Map<LogLevel, LogStrategy>([
     ["info", new InfoLogStrategy()],
     ["warn", new WarnLogStrategy()],
@@ -61,6 +67,7 @@ class App {
 
   public run() {
     this.logger.log({ level: "info", message: "App started!" });
+    // *  😏 change the strategy map at runtime
     Logger.strategies.set("debug", new DebugLogStrategy());
     this.logger.log({ level: "debug", message: "I was here" });
     this.logger.log({ level: "warn", message: "Heads up" });
