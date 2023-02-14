@@ -2,7 +2,11 @@
 
 ## Allows several (usually two) complex _subsystem_ to evolve _independently_
 
-It is the generalization of the adapter pattern. It allows to decouple objects by using an interface (the bridge) between their abstractions, so that the two can vary independently.
+It is the generalization of the adapter pattern. It allows to decouple objects by using interfaces (the bridge) between their abstractions, so that the two can vary independently.
+
+The bridge pattern respects the SOLID principles, Open/Closed by using interfaces. Liskov Substitution by using composition instead of inheritance. And Interface Segregation depending on abstractions.
+
+Two clear concepts are the abstraction and the implementation. The abstraction is the interface that the client uses to interact with the object. The implementation is the object used by the abstraction. Both can evolve independently, only respecting the contract of their interfaces.
 
 ### Links
 

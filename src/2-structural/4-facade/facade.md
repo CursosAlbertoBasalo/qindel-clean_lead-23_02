@@ -4,6 +4,8 @@
 
 You can use a facade to isolate the client from the subsystem, for simplify or just hide the details of the subsystem.
 
+The facade pattern respects the SOLID principles, Open/Closed by using interfaces. Liskov Substitution by using composition instead of inheritance. And Interface Segregation depending on abstractions.
+
 ### Links
 
 - https://sbcode.net/typescript/facade/

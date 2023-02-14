@@ -4,6 +4,8 @@
 
 It can change the behavior without changing (Open/Close Principle observed) nor extending the class (Liskov satisfied). Could use a wrapper class or an language feature like... decorators.
 
+The decorator has a heavy impact pattern in code, so is a good idea to use it with caution.
+
 ### Links
 
 - https://sbcode.net/typescript/decorator/

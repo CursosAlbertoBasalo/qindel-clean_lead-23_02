@@ -1,26 +1,33 @@
 // * ✅ Singleton solution
 
+// * IMPLEMENTOR
 // * implementor interface
 export interface Payment {
   pay(amount: number): string;
 }
+// * concrete (refined) implementor
 export class PayPal implements Payment {
   public pay(amount: number): string {
     console.log(`Paid ${amount} with PaymentPal`);
     return `PayPalPaymentCode`;
   }
 }
+// ToDo: add new payment method
 
+// * ABSTRACTION
 // * Abstraction interface
 export interface Enrolment {
   enrol(activityPrice: number, numPlaces: number): string;
 }
-// * Abstraction using implementor interface
+// * abstraction using implementor interface
 export abstract class EnrolmentBase implements Enrolment {
-  constructor(protected payment: Payment) {}
+  protected payment: Payment;
+  constructor(payment: Payment) {
+    this.payment = payment;
+  }
   public abstract enrol(activityPrice: number, numPlaces: number): string;
 }
-// * Refined abstraction
+// * concrete (refined) abstraction
 export class EnrolmentApp extends EnrolmentBase {
   public enrol(activityPrice: number, numPlaces: number): string {
     const amount = activityPrice * numPlaces;
@@ -29,6 +36,7 @@ export class EnrolmentApp extends EnrolmentBase {
     return paymentCode;
   }
 }
+// ToDo: add new enrolment service
 
 export class Application {
   public static main(): void {
