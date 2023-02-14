@@ -7,6 +7,10 @@
 - https://sbcode.net/typescript/observer/
 - https://javascript.plainenglish.io/design-patterns-with-typescript-examples-observer-22e5ae36be4c
 
+### Sample code
+
+- [ ] A generic event bus
+
 ### Tasks
 
-- [x] Create a observer communicate business logic with the logger
+- [ ] Create a observer communicate business logic with the logger
