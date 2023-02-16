@@ -1,8 +1,14 @@
-// ! npm run 3-4-3
+// * ✅ Command solution
 
-export abstract class BusinessTemplate {
+export interface BusinessTemplateInterface {
+  execute(payload: string): string;
+}
+
+export abstract class BusinessTemplate implements BusinessTemplateInterface {
   public execute(payload: string): string {
     try {
+      // * hard coded instrumentation steps
+      console.log("ℹ️  transaction started");
       const paymentResult = this.processTransaction(payload);
       console.log("ℹ️  transaction processed");
       const businessResult = this.doBusinessAction(paymentResult);
@@ -11,46 +17,48 @@ export abstract class BusinessTemplate {
       console.log("ℹ️  notification sent");
       return businessResult;
     } catch (error) {
+      // * hard coded common step
       console.log("ℹ️ 😵‍💫 error: " + error);
       return "";
     }
   }
-  //* mandatory steps
+  // * mandatory steps
   protected abstract processTransaction(payload: string): string;
   protected abstract doBusinessAction(payload: string): string;
-  // * default implementation if not overridden
+  // * optional step with default implementation if not overridden
   protected sendNotification(payload = ""): void {
-    console.log("✅ Done " + payload);
+    console.warn("✅ Done " + payload);
   }
 }
 
-export class BookingTrip extends BusinessTemplate {
+// * custom implementation steps while enrollment
+export class EnrollActivity extends BusinessTemplate {
   protected processTransaction(destination: string): string {
-    return "💸  Paying trip to " + destination;
+    return "💸  Paying Activity to " + destination;
   }
   protected doBusinessAction(payment: string): string {
-    return "🚀 Booking trip " + payment;
+    return "✍🏼 Booking Activity " + payment;
   }
   protected override sendNotification(booking: string): void {
-    console.log("📧 Trip booked " + booking);
+    console.warn("📧 Activity booked " + booking);
   }
 }
 
-export class CancelTrip extends BusinessTemplate {
+export class CancelActivity extends BusinessTemplate {
   protected processTransaction(destination: string): string {
-    return "🤑  Refunding trip " + destination;
+    return "🤑  Refunding Activity " + destination;
   }
   protected override doBusinessAction(refund: string): string {
-    return "😭  Cancelling trip " + refund;
+    return "😭  Cancelling Activity " + refund;
   }
 }
 
 export class Client {
-  private booking = new BookingTrip();
-  private cancel = new CancelTrip();
+  private enrolling: BusinessTemplateInterface = new EnrollActivity();
+  private cancel: BusinessTemplate = new CancelActivity();
   public run(): void {
-    this.booking.execute("The Moon");
-    this.cancel.execute("The Moon");
+    this.enrolling.execute("Snorkeling on the Red Sea");
+    this.cancel.execute("Snorkeling on the Red Sea");
   }
 }
 

@@ -1,45 +1,53 @@
-// ! npm run 3-4-2
+// ! ❌ Bad example not using a a template
 
-export class BookingTrip {
+export class EnrollActivity {
   public execute(destination: string): string {
+    // ! 😱 repeated steps
+    let businessResult = "";
     try {
-      const paymentResult = "💸  Paying trip to " + destination;
+      console.log("ℹ️  transaction started");
+      const paymentResult = "💸  Paying Activity to " + destination;
       console.log("ℹ️  transaction processed");
-      const businessResult = "🚀 Booking trip " + paymentResult;
+      businessResult = "✍🏼 Booking Activity " + paymentResult;
       console.log("ℹ️  action done");
-      console.log("📧 Trip booked " + businessResult);
+      console.warn("📧 Activity booked " + businessResult);
       console.log("ℹ️  notification sent");
-      return businessResult;
     } catch (error) {
       console.log("ℹ️ 😵‍💫 error: " + error);
-      return "";
     }
+    return businessResult;
   }
 }
 
-export class CancelTrip {
+// ToDo: cancel enrollment
+
+// ToDo: confirm activity
+
+export class CancelActivity {
   public execute(destination: string): string {
+    // ! 😱 repeated steps
+    let businessResult = "";
     try {
-      const paymentResult = "🤑  Refunding trip to " + destination;
+      console.log("ℹ️  transaction started");
+      const paymentResult = "🤑  Refunding Activity to " + destination;
       console.log("ℹ️  transaction processed");
-      const businessResult = "😭  Cancelling trip " + paymentResult;
+      businessResult = "😭  Cancelling Activity " + paymentResult;
       console.log("ℹ️  action done");
-      console.log("✅ Done " + businessResult);
+      console.warn("✅ Done " + businessResult);
       console.log("ℹ️  notification sent");
-      return businessResult;
     } catch (error) {
       console.log("ℹ️ 😵‍💫 error: " + error);
-      return "";
     }
+    return businessResult;
   }
 }
 
 export class Client {
-  private booking = new BookingTrip();
-  private cancel = new CancelTrip();
+  private enrolling = new EnrollActivity();
+  private cancel = new CancelActivity();
   public run(): void {
-    this.booking.execute("The Moon");
-    this.cancel.execute("The Moon");
+    this.enrolling.execute("Snorkeling on the Red Sea");
+    this.cancel.execute("Snorkeling on the Red Sea");
   }
 }
 
