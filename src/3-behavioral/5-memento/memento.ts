@@ -1,3 +1,4 @@
+// * ✅ Memento solution
 export class Activity {
   private title: string;
   private attendees: string[] = [];
@@ -45,6 +46,7 @@ type ActivityState = {
   title: string;
   attendees: string[];
   places: number;
+  // Suppose more state is added to the Activity class(money, date, etc.)
 };
 
 class ActivityMemento {
@@ -52,18 +54,20 @@ class ActivityMemento {
   private attendees: string[];
   private places: number;
 
+  // * 😏 allows undo operations deferred in time
+
   constructor(state: ActivityState) {
     this.title = state.title;
-    this.attendees = [...state.attendees];
+    this.attendees = state.attendees;
     this.places = state.places;
-    // Could also be a JSON.stringify() of the object or saving to a file
+    // * 😏 Could also be a JSON.stringify() of the object or saving to a file
   }
 
   restoreState(): ActivityState {
-    // Could also be a JSON.parse() of the string or reading from a file
+    // 😏 Could also be a JSON.parse() of the string or reading from a file
     return {
       title: this.title,
-      attendees: [...this.attendees],
+      attendees: this.attendees,
       places: this.places,
     };
   }

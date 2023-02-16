@@ -7,7 +7,7 @@ export interface BusinessTemplateInterface {
 export abstract class BusinessTemplate implements BusinessTemplateInterface {
   public execute(payload: string): string {
     try {
-      // * hard coded instrumentation steps
+      // * 😏 hard coded instrumentation steps
       console.log("ℹ️  transaction started");
       const paymentResult = this.processTransaction(payload);
       console.log("ℹ️  transaction processed");
@@ -17,21 +17,22 @@ export abstract class BusinessTemplate implements BusinessTemplateInterface {
       console.log("ℹ️  notification sent");
       return businessResult;
     } catch (error) {
-      // * hard coded common step
+      // * 😏 hard coded common step
       console.log("ℹ️ 😵‍💫 error: " + error);
       return "";
     }
   }
-  // * mandatory steps
+  // * 😏 mandatory steps
   protected abstract processTransaction(payload: string): string;
   protected abstract doBusinessAction(payload: string): string;
-  // * optional step with default implementation if not overridden
+  // * 😏 optional step with default implementation if not overridden
   protected sendNotification(payload = ""): void {
     console.warn("✅ Done " + payload);
   }
 }
 
-// * custom implementation steps while enrollment
+// * 😏 custom implementation steps while enrollment or cancellation
+
 export class EnrollActivity extends BusinessTemplate {
   protected processTransaction(destination: string): string {
     return "💸  Paying Activity to " + destination;
@@ -54,6 +55,7 @@ export class CancelActivity extends BusinessTemplate {
 }
 
 export class Client {
+  // * 😏 you can depend on abstraction not implementation
   private enrolling: BusinessTemplateInterface = new EnrollActivity();
   private cancel: BusinessTemplate = new CancelActivity();
   public run(): void {
