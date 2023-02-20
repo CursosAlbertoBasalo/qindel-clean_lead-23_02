@@ -78,11 +78,11 @@ export class LightBulb {
 }
 
 // Usage
-// const lightBulb = new LightBulb();
-// const remoteControl = new RemoteControl();
-// const lightOnCommand = new LightOnCommand(lightBulb);
-// const lightOffCommand = new LightOffCommand(lightBulb);
-// remoteControl.setOnCommand(lightOnCommand);
-// remoteControl.setOffCommand(lightOffCommand);
-// remoteControl.pressOnButton(6); // prints "Light turned on, brightness" 6
-// remoteControl.pressOffButton(); // prints "Light turned off, brightness" 0
+const lightBulb = new LightBulb();
+const remoteControl = new RemoteControl();
+const lightOnCommand = new LightOnCommand(lightBulb);
+const lightOffCommand = new LightOffCommand(lightBulb);
+remoteControl.setOnCommand(lightOnCommand);
+remoteControl.setOffCommand(lightOffCommand);
+remoteControl.pressOnButton(6); // prints "Light turned on, brightness" 6
+remoteControl.pressOffButton(); // prints "Light turned off, brightness" 0

@@ -31,7 +31,7 @@ public class CancelActivity {
       System.out.println("ℹ️  transaction processed");
       businessResult = "😭  Cancelling Activity " + paymentResult;
       System.out.println("ℹ️  action done");
-      System.out.println("✅ Done " + businessResult);
+      System.out.warn("✅ Done " + businessResult);
       System.out.println("ℹ️  notification sent");
     } catch (Exception error) {
       System.out.println("ℹ️ 😵‍💫 error: " + error);
