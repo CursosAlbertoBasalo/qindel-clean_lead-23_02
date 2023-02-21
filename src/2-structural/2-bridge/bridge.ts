@@ -54,15 +54,15 @@ export class Application {
 export interface Writer {
   write(message: string): void;
 }
-// * concrete (refined) implementor
+// * 😏 concrete (refined) implementor
 export class FileWriter implements Writer {
-  public write(message: string): void {
+  write(message: string): void {
     console.log(`Writing message to file: ${message}`);
   }
 }
-// * another concrete (refined) implementor
+// * 😏 another concrete (refined) implementor
 export class ApiWriter implements Writer {
-  public write(message: string): void {
+  write(message: string): void {
     console.log(`Writing message to API: ${message}`);
   }
 }
@@ -70,26 +70,29 @@ export class ApiWriter implements Writer {
 // ABSTRACTION
 // * Abstraction interface
 export interface Logger {
+  readonly writer: Writer;
   log(message: string): void;
 }
-// * abstraction using implementor interface
+// * 😏 bridge abstraction
 export abstract class LoggerBase implements Logger {
-  protected writer: Writer;
+  // * 😏 wraps low-level interface
+  writer: Writer;
   constructor(writer: Writer) {
     this.writer = writer;
   }
-  public abstract log(message: string): void;
+  // * 😏 exposes high-level interface
+  abstract log(message: string): void;
 }
 
-// * concrete (refined) abstraction
+// * 😏 concrete (refined) abstraction
 export class LoggerApp extends LoggerBase {
-  public log(message: string): void {
+  log(message: string): void {
     this.writer.write(message);
   }
 }
-// * another concrete (refined) abstraction
+// * 😏 another concrete (refined) abstraction
 export class BrowserLoggerApp extends LoggerBase {
-  public log(message: string): void {
+  log(message: string): void {
     this.writer.write(message + " " + navigator.userAgent);
   }
 }
