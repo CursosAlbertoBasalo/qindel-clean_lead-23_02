@@ -1,4 +1,4 @@
-export type CommonEvent = {
+export type ExternalEventData = {
   date: Date;
   host: string;
   device: string;
@@ -7,8 +7,8 @@ export type CommonEvent = {
 };
 
 // ToDo: 🤢 an external library with proprietary format
-export class CommonEventService {
-  public createMessage(event: CommonEvent): string[] {
+export class ExternalEventService {
+  public createMessage(event: ExternalEventData): string[] {
     const { date, host, device, severity, extension } = event;
     const timestamp = `${date.toLocaleDateString("en-us")} ${date.toLocaleTimeString("en-us")}`;
     const prefix = `${timestamp} ${host}`;

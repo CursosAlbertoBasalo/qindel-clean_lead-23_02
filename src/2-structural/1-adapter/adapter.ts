@@ -1,25 +1,26 @@
-import { CommonEvent, CommonEventService } from "./common-event.library";
+import { ExternalEventData, ExternalEventService } from "./external-event.library";
 import { LogEntry } from "./logger.application";
 
 // * ✅ Adapter solution
 
-// * Interface for the adapter
+// * Define your desired Interface (or use an existing one)
 export interface Logger {
   log(entry: LogEntry): string;
 }
+// * make an adpater implementing the desired interface
 export class CommonEventAdapter implements Logger {
   // * 😏 The adapted class is wrapped in a private property
-  private commonEventService: CommonEventService = new CommonEventService();
-
-  public log(entry: LogEntry): string {
-    // * 😏 knowledge of the proprietary format is encapsulated in the adapter
-    const commonEvent = this.adaptLogEntryToCommonEvent(entry);
+  private commonEventService: ExternalEventService = new ExternalEventService();
+  // * 😏 The rest of the world only sees the desired interface
+  log(entry: LogEntry): string {
+    // * 😏 knowledge of the proprietary workflow is encapsulated in the adapter
+    const commonEvent = this.adaptLogEntryToExternalEvent(entry);
     const commonEventMessage = this.commonEventService.createMessage(commonEvent);
     // Todo: change the writer or make it configurable
     return this.commonEventService.writeMessage(commonEventMessage);
   }
   // * 😏 all the ugly stuff is hidden in the adapter
-  private adaptLogEntryToCommonEvent(entry: LogEntry): CommonEvent {
+  private adaptLogEntryToExternalEvent(entry: LogEntry): ExternalEventData {
     return {
       date: entry.timestamp,
       host: "localhost",

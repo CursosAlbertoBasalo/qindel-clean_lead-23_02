@@ -17,3 +17,20 @@ export class EnrolmentSystem {
     return enrolmentCode;
   }
 }
+
+// Logging sample
+
+// ! ❌ Bad example not using a facade
+
+export class Application {
+  // ToDo : 🤢 too many dependencies
+  private writer = new Writer();
+  private formatter = new Formatter();
+  private authService = new AuthService();
+  doThings(): void {
+    // ToDo : 🤢 too much coupling and knowledge of the subsystems
+    const user = this.authService.getUser();
+    const logMessage = this.formatter.format("Doing things", user);
+    this.writer.write(logMessage);
+  }
+}

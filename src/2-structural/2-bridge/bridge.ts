@@ -1,4 +1,4 @@
-// * ✅ Singleton solution
+// * ✅ Bridge solution
 
 // * IMPLEMENTOR
 // * implementor interface
@@ -45,5 +45,51 @@ export class Application {
     const enrolment: Enrolment = new EnrolmentApp(payment);
     const paymentCode = enrolment.enrol(100, 2);
     console.log(paymentCode);
+  }
+}
+
+// * ✅ Bridge solution
+// IMPLEMENTOR
+// * implementor interface
+export interface Writer {
+  write(message: string): void;
+}
+// * concrete (refined) implementor
+export class FileWriter implements Writer {
+  public write(message: string): void {
+    console.log(`Writing message to file: ${message}`);
+  }
+}
+// * another concrete (refined) implementor
+export class ApiWriter implements Writer {
+  public write(message: string): void {
+    console.log(`Writing message to API: ${message}`);
+  }
+}
+
+// ABSTRACTION
+// * Abstraction interface
+export interface Logger {
+  log(message: string): void;
+}
+// * abstraction using implementor interface
+export abstract class LoggerBase implements Logger {
+  protected writer: Writer;
+  constructor(writer: Writer) {
+    this.writer = writer;
+  }
+  public abstract log(message: string): void;
+}
+
+// * concrete (refined) abstraction
+export class LoggerApp extends LoggerBase {
+  public log(message: string): void {
+    this.writer.write(message);
+  }
+}
+// * another concrete (refined) abstraction
+export class BrowserLoggerApp extends LoggerBase {
+  public log(message: string): void {
+    this.writer.write(message + " " + navigator.userAgent);
   }
 }

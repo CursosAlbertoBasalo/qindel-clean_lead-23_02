@@ -27,3 +27,26 @@ export class EnrolmentSystem {
     return enrolmentCode;
   }
 }
+
+// Logging sample
+
+// * Facade class
+export class Logger {
+  private writer = new Writer();
+  private formatter = new Formatter();
+  private authService = new AuthService();
+  log(message: string): void {
+    // * 😏 The complexity of the subsystem is hidden from the client code
+    const user = this.authService.getUser();
+    const logMessage = this.formatter.format(message, user);
+    this.writer.write(logMessage);
+  }
+}
+export class Application {
+  // reduce the number of dependencies
+  private logger = new Logger();
+  doThings(): void {
+    // * 😏 the client code does his job
+    this.logger.log("Doing things");
+  }
+}

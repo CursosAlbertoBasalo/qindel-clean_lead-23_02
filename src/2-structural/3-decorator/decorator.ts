@@ -38,3 +38,38 @@ export class EnrolmentDecorator implements Enrol, Cancel {
     return cancellation;
   }
 }
+
+// Logger example
+
+// * original class not modified
+export class Logger {
+  log(message: string): void {
+    console.log(`Logging message: ${message}`);
+  }
+}
+
+// * generate an interface for the current functionality
+export interface Log {
+  log(message: string): void;
+}
+
+// * generate an interface for the new functionality
+export interface ErrorLog {
+  errorLog(error: Error): void;
+}
+
+// * Create a decorator class that implements the interface by wrapping the original class
+export class LoggerDecorator implements Log, ErrorLog {
+  // * The decorator wraps a reference to the original class
+  private logger: Logger = new Logger();
+
+  // * The decorator class delegates the original functionality to the original class
+  log(message: string): void {
+    // * 😏 could change the functionality if needed
+    this.logger.log(message);
+  }
+  // * 😏 The decorator class adds new functionality
+  errorLog(error: Error): void {
+    console.log(`Logging error: ${error.message}`);
+  }
+}

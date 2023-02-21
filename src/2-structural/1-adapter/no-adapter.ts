@@ -1,16 +1,16 @@
-import { CommonEvent, CommonEventService } from "./common-event.library";
+import { ExternalEventData, ExternalEventService } from "./external-event.library";
 
 // ! ❌ Bad example not using adapter
 export class Client {
   // ! 🤢 client classes depending on concrete implementations
-  private readonly logger: CommonEventService;
+  private readonly logger: ExternalEventService;
   constructor() {
     // ! 🤢 client classes are coupled to the library
-    this.logger = new CommonEventService();
+    this.logger = new ExternalEventService();
   }
   public doThings() {
     // ! 🤢 client classes are coupled to the interface
-    const event: CommonEvent = {
+    const event: ExternalEventData = {
       date: new Date(),
       host: "localhost",
       device: "myApp",

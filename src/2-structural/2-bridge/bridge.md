@@ -6,7 +6,7 @@ It is the generalization of the adapter pattern. It allows to decouple objects b
 
 The bridge pattern respects the SOLID principles, Open/Closed by using interfaces. Liskov Substitution by using composition instead of inheritance. And Interface Segregation depending on abstractions.
 
-Two clear concepts are the abstraction and the implementation. The abstraction is the interface that the client uses to interact with the object. The implementation is the object used by the abstraction. Both can evolve independently, only respecting the contract of their interfaces.
+Two related concepts are the abstraction and the implementation. The abstraction is the interface that the client uses to interact with the object. The implementation is the object used by the abstraction. Both can evolve independently, only respecting the contract of their interfaces.
 
 ### Links
 
