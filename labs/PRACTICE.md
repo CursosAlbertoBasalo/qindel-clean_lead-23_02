@@ -37,3 +37,49 @@ Scenario: Browse activities by age restriction
 - [ ] Builder
 - [ ] Factory Method
 - [ ] Strategy
+
+## 2 Enrollments and Payments
+
+```gherkin
+Feature: Create an enrollment
+  As a participant
+  I want to reserve for enrollments for myself or others in an activity
+  So that I can secure my place
+Scenario: Create an enrollment with valid inputs
+  Given I am a participant
+  When I create an enrollment for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  Then the enrollment is created
+
+Feature: Cancel an enrollment
+  As a participant
+  I want to cancel my enrollment in an activity if it is free or not confirmed yet
+  So that I can change my mind without losing money
+Scenario: Cancel an enrollment with valid inputs
+  Given I am a participant
+  When I cancel an enrollment for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  Then the enrollment is canceled
+
+Feature: Pay for an enrollment
+  As a participant of a confirmed activity
+  I want to pay for my enrollments in any method (cash, credit card or bank transfer)
+  So that I can pay conveniently
+Scenario: Pay for an enrollment with valid inputs
+  Given I am a participant of a confirmed activity
+  When I pay for an enrollment for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  Then the enrollment is paid
+
+Feature: Get a web url (slug) for each activity
+  As a participant
+  I want to get a web url (slug) for each activity
+  So that I can share it with my friends
+Scenario: Get a web url (slug) for each activity with valid inputs
+  Given I am a participant
+  When I get a web url (slug) for each activity for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  Then the web url (slug) is created
+```
+
+#### Patterns
+
+- [ ] Bridge
+- [ ] Proxy
+- [ ] Decorator
