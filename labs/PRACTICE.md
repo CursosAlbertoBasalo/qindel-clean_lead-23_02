@@ -46,8 +46,8 @@ Feature: Create an enrollment
   I want to reserve for enrollments for myself or others in an activity
   So that I can secure my place
 Scenario: Create an enrollment with valid inputs
-  Given I am a participant
-  When I create an enrollment for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  Given I am a participant John Doe
+  When I create an enrollment for activity "Yoga class" for myself
   Then the enrollment is created
 
 Feature: Cancel an enrollment
@@ -56,8 +56,13 @@ Feature: Cancel an enrollment
   So that I can change my mind without losing money
 Scenario: Cancel an enrollment with valid inputs
   Given I am a participant
-  When I cancel an enrollment for activity "Yoga class" with date "2020-01-01", location "Ghent", price "10", age restriction "18+", capacity "10", quorum "5"
+  When I cancel an enrollment for activity "Yoga class" in status "pending"
   Then the enrollment is canceled
+Scenario: Not Cancel an enrollment with valid inputs
+  Given I am a participant
+  When I cancel an enrollment for activity "Yoga class" in status "confirmed"
+  Then the enrollment is not canceled
+
 
 Feature: Pay for an enrollment
   As a participant of a confirmed activity
