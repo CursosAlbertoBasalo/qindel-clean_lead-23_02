@@ -29,7 +29,21 @@ export class EnrolmentSystem {
 }
 
 // Logging sample
-
+class Writer {
+  write(message: string): void {
+    console.log(`Writing message to file: ${message}`);
+  }
+}
+class Formatter {
+  format(message: string, user: string): string {
+    return `${user}: ${message}`;
+  }
+}
+class AuthService {
+  getUser(): string {
+    return "user";
+  }
+}
 // * Facade class
 export class Logger {
   private writer = new Writer();

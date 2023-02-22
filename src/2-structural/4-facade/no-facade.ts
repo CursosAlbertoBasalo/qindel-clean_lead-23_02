@@ -22,6 +22,22 @@ export class EnrolmentSystem {
 
 // ! ❌ Bad example not using a facade
 
+class Writer {
+  write(message: string): void {
+    console.log(`Writing message to file: ${message}`);
+  }
+}
+class Formatter {
+  format(message: string, user: string): string {
+    return `${user}: ${message}`;
+  }
+}
+class AuthService {
+  getUser(): string {
+    return "user";
+  }
+}
+
 export class Application {
   // ToDo : 🤢 too many dependencies
   private writer = new Writer();
