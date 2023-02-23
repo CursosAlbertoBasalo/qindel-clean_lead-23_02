@@ -56,7 +56,7 @@ export class Logger implements LogStrategy {
       return strategy.log(entry);
     } else {
       const message = `Unknown log level: ${entry.level}`;
-      console.error(message);
+      console.warn(message);
       return message;
     }
   }
