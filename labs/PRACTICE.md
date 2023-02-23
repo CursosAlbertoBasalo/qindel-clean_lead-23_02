@@ -46,7 +46,7 @@ Feature: Create an enrollment
   I want to reserve for enrollments for myself or others in an activity
   So that I can secure my place
 Scenario: Create an enrollment with valid inputs
-  Given I am a participant John Doe
+  Given I am a participant Jane Doe
   When I create an enrollment for activity "Yoga class" for myself
   Then the enrollment is created
 
