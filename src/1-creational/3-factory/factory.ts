@@ -1,9 +1,9 @@
 // * ✅ Factory solution
 import { ConsoleWriter, DatabaseWriter, FileWriter, Logger, Writer } from "./factory.dependencies";
 
-// * 😏 factory method encapsulates the logic to create the correct instance
+// * 😏 factory method encapsulates the logic to create the right instance
 export function createWriter(): Writer {
-  // * 😏 if the criteria changes, we only need to change the factory
+  // * 😏 if the criteria change, we only need to change the factory
   switch (process.env.LOGGER || "console") {
     case "console":
       return new ConsoleWriter();

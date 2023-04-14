@@ -6,5 +6,6 @@ export class Activity {
 }
 
 const activity = new Activity("Diving", true, 100, new Date(2025, 2, 7));
-// ! 😱 creating a new instance but the similar instance is a painful and error-prone task
+// ! 😱 creating a new instance, but a similar one is already created
+// It is a painful and error-prone task
 const activity2 = new Activity("Diving", true, 100, new Date(2026, 1, 8));

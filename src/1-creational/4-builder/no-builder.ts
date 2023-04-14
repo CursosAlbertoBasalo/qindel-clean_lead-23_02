@@ -1,6 +1,6 @@
 import { DatabaseWriter, FileWriter, Formatter, JsonFormatter, LogEntry, Writer } from "./builder.dependencies";
 
-// ! ❌ Bad example not using a builder
+// ! ❌ Bad example of not using a builder
 class Logger {
   private formatter: Formatter | undefined;
   private writer: Writer | undefined;
