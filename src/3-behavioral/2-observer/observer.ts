@@ -14,9 +14,6 @@ interface Observable {
 export class EventBus implements Observable {
   private subscriptions: Map<string, Observer[]> = new Map();
 
-  // ToDo: should be a singleton
-  // ToDo: should be typed
-
   subscribe(eventName: string, listener: Observer): void {
     let handlers = this.subscriptions.get(eventName);
     if (!handlers) {
@@ -39,5 +36,36 @@ export class EventBus implements Observable {
     if (handlers) {
       handlers.forEach(handler => handler(eventArgs));
     }
+  }
+}
+
+// * 😏 the logger is an observer
+interface LoggerObserver {
+  log: Observer;
+}
+class Logger implements LoggerObserver {
+  log(data: object): void {
+    console.log(data);
+  }
+}
+
+// * 😏 the agency is an observable
+class Agency extends EventBus implements Observable {
+  private bookings: object[] = [];
+
+  addBooking(booking: object) {
+    this.bookings.push(booking);
+    this.publish("booking-created", booking);
+  }
+}
+
+// * 😏 the application can subscribe the logger to agency events
+export class App {
+  main() {
+    const agency = new Agency();
+    const logger = new Logger();
+    // * 😏 agency and logger are unrelated
+    agency.subscribe("booking-created", logger.log);
+    agency.addBooking({ trip: "Paris", price: 100 });
   }
 }
